@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORTA — Vegetable-Tanned Leather Goods</title>
+  <meta name="description" content="European minimalist leather essentials crafted in full-grain vegetable-tanned leather. Designed for those moving to their next level." />
+
+  <!-- Editorial Luxury Fonts: Cormorant Garamond + Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       ORTA DESIGN SYSTEM — QUIET LUXURY TOKENS
+       ========================================================= */
+    :root {
+      --bg-ivory: #F6F3EE;
+      --bg-stone: #ECE7DF;
+      --bg-espresso: #191614;
+      --bg-obsidian: #11100F;
+
+      --ink-primary: #151311;
+      --ink-muted: #66605A;
+      --ink-light: #F6F3EE;
+
+      --cognac: #7B4A28;
+      --espresso: #33261F;
+      --noir: #171615;
+
+      --hairline: rgba(21, 19, 17, 0.12);
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+      --container-max: 1380px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-ivory);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* Typography & Layout Utilities */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    .narrow-col { max-width: 720px; }
+    .text-center { text-align: center; }
+    .section-pad { padding: clamp(72px, 9vw, 130px) 0; }
+    .border-top { border-top: 1px solid var(--hairline); }
+
+    .micro-label {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .micro-label.light { color: rgba(246, 243, 238, 0.78); }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+
+    .editorial-statement {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+      line-height: 1.24;
+      margin-bottom: 24px;
+    }
+
+    .body-copy {
+      font-size: 0.96rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .body-copy.muted { color: var(--ink-muted); }
+
+    .editorial-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding-bottom: 6px;
+      border-bottom: 1px solid currentColor;
+      transition: opacity 0.35s var(--ease-luxury);
+    }
+
+    .editorial-link:hover { opacity: 0.6; }
+    .editorial-link.light { color: var(--ink-light); }
+
+    .btn-outline {
+      border: 1px solid var(--ink-primary);
+      padding: 13px 26px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: background-color 0.35s var(--ease-luxury), color 0.35s var(--ease-luxury);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--ink-primary);
+      color: var(--ink-light);
+    }
+
+    .btn-solid {
+      background-color: var(--ink-primary);
+      color: var(--ink-light);
+      padding: 15px 28px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background-color 0.35s var(--ease-luxury);
+    }
+
+    .btn-solid:hover { background-color: var(--cognac); }
+    .full-width { width: 100%; }
+
+    /* MODULE 01: Announcement Bar */
+    .announcement-bar {
+      background-color: var(--bg-obsidian);
+      color: var(--ink-light);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* MODULE 02: Header & Dropdown */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(246, 243, 238, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+      height: 74px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+
+    .brand-wordmark {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: 0.42em;
+      text-indent: 0.42em;
+      justify-self: center;
+    }
+
+    .nav-group {
+      display: flex;
+      gap: clamp(18px, 2.5vw, 34px);
+      align-items: center;
+    }
+
+    .nav-right { justify-self: end; }
+
+    .nav-group a,
+    .bag-trigger {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-group a:hover,
+    .bag-trigger:hover { opacity: 0.55; }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 26px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 24px;
+      background-color: var(--bg-ivory);
+      border: 1px solid var(--hairline);
+      padding: 28px 34px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(175px, 1fr));
+      gap: 32px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(6px);
+      transition: opacity 0.3s var(--ease-luxury), transform 0.3s var(--ease-luxury), visibility 0.3s;
+      z-index: 50;
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dropdown-col .micro-label { margin-bottom: 4px; }
+
+    .dropdown-col a {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: none;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      width: 24px;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--ink-primary);
+    }
+
+    /* MODULE 03: Hero */
+    .hero {
+      position: relative;
+      height: calc(92vh - 108px);
+      min-height: 540px;
+      max-height: 860px;
+      background-color: var(--bg-espresso);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-media { position: absolute; inset: 0; }
+
+    .hero-media img {
+      filter: brightness(0.76) contrast(1.06);
+      transform: scale(1.02);
+    }
+
+    .hero-media.fallback-hero {
+      background:
+        radial-gradient(circle at 72% 38%, rgba(123, 74, 40, 0.38), transparent 55%),
+        linear-gradient(135deg, #171412 0%, #261D18 52%, #110F0E 100%);
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17, 16, 15, 0.84) 0%, rgba(17, 16, 15, 0.22) 55%, rgba(17, 16, 15, 0.1) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-bottom: clamp(48px, 7vh, 88px);
+      color: var(--ink-light);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 5.4vw, 4.75rem);
+      line-height: 1.06;
+      margin-bottom: 28px;
+    }
+
+    .hero-title em { font-style: italic; }
+
+    /* MODULE 05: 9-Category 3x3 Collection Grid */
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: clamp(36px, 4vw, 56px);
+    }
+
+    .section-meta {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .category-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .filter-btn {
+      padding: 10px 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover { color: var(--ink-primary); }
+
+    .filter-btn.active { border-bottom-color: var(--ink-primary); }
+
+    .product-grid.three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px 26px;
+    }
+
+    .product-card.is-hidden { display: none; }
+
+    .product-media {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background-color: var(--bg-stone);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .product-media img {
+      transition: transform 0.9s var(--ease-luxury);
+      filter: contrast(1.03) saturate(0.92);
+    }
+
+    .product-card:hover .product-media img { transform: scale(1.04); }
+
+    .studio-placeholder-label {
+      display: none;
+      position: absolute;
+      inset: 0;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      line-height: 1.9;
+      color: var(--ink-muted);
+    }
+
+    .fallback-studio .studio-placeholder-label { display: flex; }
+
+    .quick-add-btn {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      background-color: rgba(246, 243, 238, 0.96);
+      color: var(--ink-primary);
+      padding: 12px;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.35s var(--ease-luxury), transform 0.35s var(--ease-luxury), background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .product-card:hover .quick-add-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .quick-add-btn:hover {
+      background-color: var(--ink-primary);
+      color: var(--ink-light);
+    }
+
+    .cat-tag {
+      display: block;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+    }
+
+    .product-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .product-title-row h3 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .price {
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .product-sub {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+
+    .swatch-row { display: flex; gap: 8px; }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+    }
+
+    .swatch.active {
+      outline: 1px solid var(--ink-primary);
+      outline-offset: 2px;
+    }
+
+    .swatch.cognac { background-color: var(--cognac); }
+    .swatch.espresso { background-color: var(--espresso); }
+    .swatch.noir { background-color: var(--noir); }
+
+    /* MODULE 06: Savoir-Faire Split & Patina Study */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 640px;
+    }
+
+    .split-media {
+      position: relative;
+      background-color: #2A1E17;
+      min-height: 460px;
+      overflow: hidden;
+    }
+
+    .split-media img {
+      transition: filter 0.6s ease;
+    }
+
+    .split-media.fallback-dark {
+      background: radial-gradient(circle at 30% 40%, #6A4127, #241912 75%);
+    }
+
+    .patina-visual-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: clamp(28px, 4vw, 52px);
+      background: linear-gradient(to top, rgba(17, 16, 15, 0.9), rgba(17, 16, 15, 0.3) 65%, transparent);
+      color: var(--ink-light);
+    }
+
+    .patina-stage-label {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      margin-bottom: 6px;
+    }
+
+    .patina-stage-note {
+      font-size: 0.82rem;
+      color: rgba(246, 243, 238, 0.82);
+      max-width: 400px;
+    }
+
+    .split-content {
+      padding: clamp(48px, 7vw, 100px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .split-content .section-title { margin-bottom: 24px; }
+
+    .patina-selector {
+      display: flex;
+      gap: 24px;
+      border-bottom: 1px solid var(--hairline);
+      margin: 20px 0 32px;
+    }
+
+    .patina-tab {
+      padding: 10px 0;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .patina-tab.active {
+      color: var(--ink-primary);
+      border-bottom-color: var(--ink-primary);
+    }
+
+    .craft-specs { list-style: none; }
+
+    .craft-specs li {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 0.84rem;
+    }
+
+    .craft-specs li span:first-child {
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.72rem;
+    }
+
+    /* MODULE 07: Occasions Triptych */
+    .triptych-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .triptych-media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background-color: var(--bg-stone);
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .triptych-media img {
+      transition: transform 0.9s var(--ease-luxury);
+      filter: contrast(1.03) saturate(0.9);
+    }
+
+    .triptych-item:hover .triptych-media img { transform: scale(1.035); }
+
+    .triptych-item figcaption p {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* MODULE 08: Bespoke Monogramming */
+    .monogram-band { background-color: var(--bg-stone); }
+
+    .monogram-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(36px, 6vw, 88px);
+      align-items: center;
+    }
+
+    .monogram-copy .section-title { margin-bottom: 20px; }
+    .monogram-controls { margin-top: 28px; }
+
+    .monogram-input-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .monogram-input-row input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--ink-primary);
+      padding: 10px 4px;
+      width: 140px;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .monogram-status {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--cognac);
+      min-height: 20px;
+    }
+
+    .monogram-preview-card { display: flex; justify-content: center; }
+
+    .leather-patch {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(145deg, #6B3F22 0%, #4F2D17 100%);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    .leather-patch::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(246, 243, 238, 0.22);
+      pointer-events: none;
+    }
+
+    .debossed-initials {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 4.5vw, 4rem);
+      letter-spacing: 0.22em;
+      text-align: center;
+      color: rgba(29, 15, 7, 0.72);
+      text-shadow: 0 1px 0 rgba(255, 224, 195, 0.16);
+      text-transform: uppercase;
+    }
+
+    .patch-corner {
+      font-size: 0.62rem;
+      letter-spacing: 0.24em;
+      color: rgba(246, 243, 238, 0.52);
+      text-align: right;
+    }
+
+    /* MODULE 09: Footer */
+    .site-footer { padding: clamp(64px, 8vw, 100px) 0 36px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1.2fr 1fr 1.1fr;
+      gap: 40px;
+      margin-bottom: 64px;
+    }
+
+    .footer-brand .brand-wordmark {
+      display: inline-block;
+      margin-bottom: 18px;
+      text-indent: 0;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    .footer-col a:hover { color: var(--ink-primary); }
+
+    .footer-note {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      border-bottom: 1px solid var(--ink-primary);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 10px 0;
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding-left: 16px;
+    }
+
+    .newsletter-msg {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--cognac);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid var(--hairline);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      color: var(--ink-muted);
+    }
+
+    /* MODULE 10: Drawers (Mobile Nav & Shopping Bag) */
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 16, 15, 0.45);
+      z-index: 60;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .cart-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .cart-drawer,
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: min(440px, 100vw);
+      background-color: var(--bg-ivory);
+      z-index: 70;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.45s var(--ease-luxury);
+    }
+
+    .cart-drawer {
+      right: 0;
+      transform: translateX(100%);
+      border-left: 1px solid var(--hairline);
+    }
+
+    .cart-drawer.open { transform: translateX(0); }
+
+    .mobile-drawer {
+      left: 0;
+      transform: translateX(-100%);
+      border-right: 1px solid var(--hairline);
+    }
+
+    .mobile-drawer.open { transform: translateX(0); }
+
+    .cart-header,
+    .mobile-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .cart-header .micro-label,
+    .mobile-drawer-header .micro-label { margin-bottom: 0; }
+
+    .icon-close {
+      font-size: 1.6rem;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+    }
+
+    .mobile-link {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 28px;
+    }
+
+    .cart-empty {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      color: var(--ink-muted);
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .cart-thumb {
+      aspect-ratio: 3 / 4;
+      background-color: var(--bg-stone);
+      overflow: hidden;
+    }
+
+    .cart-item-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      margin-bottom: 2px;
+    }
+
+    .cart-item-variant {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+    }
+
+    .cart-item-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .qty-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--hairline);
+    }
+
+    .qty-box button { padding: 4px 10px; font-size: 0.85rem; }
+    .qty-box span { padding: 0 8px; font-size: 0.8rem; }
+
+    .remove-item {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .cart-footer {
+      padding: 24px 28px 32px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .cart-note-row,
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .cart-shipping-note {
+      font-size: 0.74rem;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1080px) {
+      .product-grid.three-col { grid-template-columns: repeat(2, 1fr); }
+      .split-layout,
+      .monogram-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-left,
+      .nav-right a { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .section-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .triptych-grid { grid-template-columns: 1fr; }
+      .quick-add-btn { opacity: 1; transform: translateY(0); }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+
+    @media (max-width: 600px) {
+      .product-grid.three-col,
+      .footer-two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MODULE 01: ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <span>COMPLIMENTARY BLIND MONOGRAMMING ON ALL PREPAID ORDERS ACROSS INDIA</span>
+  </div>
+
+  <!-- MODULE 02: HEADER & 9-CATEGORY NAVIGATION -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Open Navigation">
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav-group nav-left" aria-label="Primary Left">
+        <div class="nav-dropdown">
+          <a href="#collection" class="dropdown-trigger">Collections</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-col">
+              <span class="micro-label">SMALL LEATHER GOODS</span>
+              <a href="#collection" data-filter-jump="slg">Wallets</a>
+              <a href="#collection" data-filter-jump="slg">Metallic Card Holders</a>
+              <a href="#collection" data-filter-jump="slg">Leather Card Holders</a>
+            </div>
+            <div class="dropdown-col">
+              <span class="micro-label">DAILY CARRY</span>
+              <a href="#collection" data-filter-jump="daily">Handbags</a>
+              <a href="#collection" data-filter-jump="daily">Sling Bags</a>
+              <a href="#collection" data-filter-jump="daily">Laptop Bags</a>
+            </div>
+            <div class="dropdown-col">
+              <span class="micro-label">TRAVEL &amp; HERITAGE</span>
+              <a href="#collection" data-filter-jump="travel">Duffle Bags</a>
+              <a href="#collection" data-filter-jump="travel">Backpacks</a>
+              <a href="#collection" data-filter-jump="travel">Rucksacks</a>
+            </div>
+          </div>
+        </div>
+        <a href="#savoir-faire">The Craft</a>
+        <a href="#occasions">Occasions</a>
+      </nav>
+
+      <a href="#" class="brand-wordmark" aria-label="ORTA Home">ORTA</a>
+
+      <nav class="nav-group nav-right" aria-label="Primary Right">
+        <a href="#monogram">Bespoke</a>
+        <a href="#thesis">Philosophy</a>
+        <button class="bag-trigger" id="openCartBtn" aria-label="Open Shopping Bag">
+          Bag (<span id="cartCount">0</span>)
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <span class="micro-label">COLLECTIONS</span>
+      <button class="icon-close" id="closeMobileMenu" aria-label="Close Menu">&times;</button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#collection" class="mobile-link" data-filter-jump="all">All Silhouettes (09)</a>
+      <a href="#collection" class="mobile-link" data-filter-jump="slg">Wallets &amp; Card Holders</a>
+      <a href="#collection" class="mobile-link" data-filter-jump="daily">Handbags, Slings &amp; Laptop</a>
+      <a href="#collection" class="mobile-link" data-filter-jump="travel">Duffles, Backpacks &amp; Rucksacks</a>
+      <a href="#savoir-faire" class="mobile-link">The Craft &amp; Patina</a>
+      <a href="#monogram" class="mobile-link">Bespoke Monogramming</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- MODULE 03: HERO EDITORIAL -->
+    <section class="hero">
+      <div class="hero-media">
+        <img
+          src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1600&q=85"
+          alt="ORTA Vegetable-Tanned Leather Collection"
+          onerror="this.style.display='none'; this.parentElement.classList.add('fallback-hero');"
+        />
+      </div>
+      <div class="hero-scrim"></div>
+      <div class="hero-content container">
+        <p class="micro-label light">COLLECTION I — FULL-GRAIN VT LEATHER</p>
+        <h1 class="hero-title">Success is not only worn.<br /><em>It is carried.</em></h1>
+        <a href="#collection" class="editorial-link light">Explore the Collection</a>
+      </div>
+    </section>
+
+    <!-- MODULE 04: BRAND THESIS -->
+    <section class="thesis section-pad" id="thesis">
+      <div class="container narrow-col text-center">
+        <p class="micro-label">THE PHILOSOPHY</p>
+        <h2 class="editorial-statement">
+          Designed not as an entry into luxury, but for those who have moved beyond where they started.
+        </h2>
+        <p class="body-copy muted">
+          No loud logos. No excess. ORTA represents the quiet transition from ambition to arrival—crafted with European minimalist proportions for boardrooms, transit, and defining personal milestones.
+        </p>
+      </div>
+    </section>
+
+    <!-- MODULE 05: 9-CATEGORY ARCHIVE GRID -->
+    <section class="collection section-pad border-top" id="collection">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <p class="micro-label">PERMANENT ARCHIVE</p>
+            <h2 class="section-title">Nine Silhouettes</h2>
+          </div>
+
+          <div class="category-filters" role="tablist" aria-label="Filter Collections">
+            <button class="filter-btn active" data-filter="all">All (09)</button>
+            <button class="filter-btn" data-filter="slg">Wallets &amp; Card Holders</button>
+            <button class="filter-btn" data-filter="daily">Handbags, Slings &amp; Laptop</button>
+            <button class="filter-btn" data-filter="travel">Duffles, Backpacks &amp; Rucksacks</button>
+          </div>
+        </div>
+
+        <div class="product-grid three-col" id="productGrid">
+
+          <!-- 01. WALLET -->
+          <article class="product-card" data-category="slg">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Bi-Fold Wallet"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">01 / WALLET</span>
+              <button class="quick-add-btn" data-name="No. 01 Classic Bi-Fold Wallet" data-price="3490" data-variant="Burnished Cognac — VT Leather" data-img="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Wallet</span>
+              <div class="product-title-row">
+                <h3>No. 01 Classic Bi-Fold</h3>
+                <span class="price">₹3,490</span>
+              </div>
+              <p class="product-sub">Full-Grain VT Leather — 6 Slots, RFID</p>
+              <div class="swatch-row">
+                <span class="swatch cognac active" title="Burnished Cognac"></span>
+                <span class="swatch espresso" title="Dark Espresso"></span>
+                <span class="swatch noir" title="Obsidian Noir"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02. METALLIC CARD HOLDER -->
+          <article class="product-card" data-category="slg">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1504276288612-c18c8df55e05?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Metallic Card Holder"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">02 / METALLIC CARD HOLDER</span>
+              <button class="quick-add-btn" data-name="No. 02 Alloy &amp; VT Card Case" data-price="2790" data-variant="Brushed Gunmetal &amp; Noir" data-img="https://images.unsplash.com/photo-1504276288612-c18c8df55e05?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Metallic Card Holder</span>
+              <div class="product-title-row">
+                <h3>No. 02 Alloy &amp; VT Case</h3>
+                <span class="price">₹2,790</span>
+              </div>
+              <p class="product-sub">Anodized Aluminum Core — Quick Eject</p>
+              <div class="swatch-row">
+                <span class="swatch noir active" title="Brushed Gunmetal &amp; Noir"></span>
+                <span class="swatch cognac" title="Brushed Brass &amp; Cognac"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03. LEATHER CARD HOLDER -->
+          <article class="product-card" data-category="slg">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1620109176813-e91290f6c795?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Leather Card Holder"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">03 / LEATHER CARD HOLDER</span>
+              <button class="quick-add-btn" data-name="No. 03 Slim Leather Card Holder" data-price="2290" data-variant="Dark Espresso — VT Leather" data-img="https://images.unsplash.com/photo-1620109176813-e91290f6c795?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Leather Card Holder</span>
+              <div class="product-title-row">
+                <h3>No. 03 Architectural Card Case</h3>
+                <span class="price">₹2,290</span>
+              </div>
+              <p class="product-sub">Full-Grain VT Leather — 5 Slots</p>
+              <div class="swatch-row">
+                <span class="swatch espresso active" title="Dark Espresso"></span>
+                <span class="swatch cognac" title="Burnished Cognac"></span>
+                <span class="swatch noir" title="Obsidian Noir"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04. HANDBAG -->
+          <article class="product-card" data-category="daily">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Structured Handbag"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">04 / HANDBAG</span>
+              <button class="quick-add-btn" data-name="No. 04 Structured Top-Handle" data-price="11990" data-variant="Burnished Cognac — VT Leather" data-img="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Handbag</span>
+              <div class="product-title-row">
+                <h3>No. 04 Structured Top-Handle</h3>
+                <span class="price">₹11,990</span>
+              </div>
+              <p class="product-sub">Box-Calf Finish VT — Detachable Strap</p>
+              <div class="swatch-row">
+                <span class="swatch cognac active" title="Burnished Cognac"></span>
+                <span class="swatch noir" title="Obsidian Noir"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05. SLING BAG -->
+          <article class="product-card" data-category="daily">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Minimalist Sling Bag"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">05 / SLING BAG</span>
+              <button class="quick-add-btn" data-name="No. 05 Crossbody Leather Sling" data-price="6490" data-variant="Obsidian Noir — VT Leather" data-img="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Sling Bag</span>
+              <div class="product-title-row">
+                <h3>No. 05 Crossbody Sling</h3>
+                <span class="price">₹6,490</span>
+              </div>
+              <p class="product-sub">Full-Grain VT — Brushed Brass Hardware</p>
+              <div class="swatch-row">
+                <span class="swatch noir active" title="Obsidian Noir"></span>
+                <span class="swatch espresso" title="Dark Espresso"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06. LAPTOP BAG -->
+          <article class="product-card" data-category="daily">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Executive Laptop Bag"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">06 / LAPTOP BAG</span>
+              <button class="quick-add-btn" data-name="No. 06 Executive 15&quot; Laptop Bag" data-price="10490" data-variant="Dark Espresso — VT Leather" data-img="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Laptop Bag</span>
+              <div class="product-title-row">
+                <h3>No. 06 Executive Briefcase</h3>
+                <span class="price">₹10,490</span>
+              </div>
+              <p class="product-sub">Fits 15&quot; Device — Trolley Pass-Through</p>
+              <div class="swatch-row">
+                <span class="swatch espresso active" title="Dark Espresso"></span>
+                <span class="swatch cognac" title="Burnished Cognac"></span>
+                <span class="swatch noir" title="Obsidian Noir"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07. DUFFLE BAG -->
+          <article class="product-card" data-category="travel">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1536584754829-12214d404f32?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Leather Duffle Bag"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">07 / DUFFLE BAG</span>
+              <button class="quick-add-btn" data-name="No. 07 Weekender Duffle Bag" data-price="16990" data-variant="Burnished Cognac — VT Leather" data-img="https://images.unsplash.com/photo-1536584754829-12214d404f32?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Duffle Bag</span>
+              <div class="product-title-row">
+                <h3>No. 07 Weekender Duffle</h3>
+                <span class="price">₹16,990</span>
+              </div>
+              <p class="product-sub">Cabin-Compliant 42L — Brass Stud Feet</p>
+              <div class="swatch-row">
+                <span class="swatch cognac active" title="Burnished Cognac"></span>
+                <span class="swatch espresso" title="Dark Espresso"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08. BACKPACK -->
+          <article class="product-card" data-category="travel">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Structured Leather Backpack"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">08 / BACKPACK</span>
+              <button class="quick-add-btn" data-name="No. 08 Structured City Backpack" data-price="13490" data-variant="Obsidian Noir — VT Leather" data-img="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Backpack</span>
+              <div class="product-title-row">
+                <h3>No. 08 City Backpack</h3>
+                <span class="price">₹13,490</span>
+              </div>
+              <p class="product-sub">Padded 16&quot; Sleeve — Concealed Zip</p>
+              <div class="swatch-row">
+                <span class="swatch noir active" title="Obsidian Noir"></span>
+                <span class="swatch espresso" title="Dark Espresso"></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09. RUCKSACK -->
+          <article class="product-card" data-category="travel">
+            <div class="product-media">
+              <img
+                src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=1000&q=80"
+                alt="ORTA Heritage Leather Rucksack"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">09 / RUCKSACK</span>
+              <button class="quick-add-btn" data-name="No. 09 Heritage Flap Rucksack" data-price="15490" data-variant="Burnished Cognac — VT Leather" data-img="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=400&q=80">Add to Bag</button>
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Rucksack</span>
+              <div class="product-title-row">
+                <h3>No. 09 Heritage Rucksack</h3>
+                <span class="price">₹15,490</span>
+              </div>
+              <p class="product-sub">Drawstring &amp; Buckle Closure — Heavy VT</p>
+              <div class="swatch-row">
+                <span class="swatch cognac active" title="Burnished Cognac"></span>
+                <span class="swatch espresso" title="Dark Espresso"></span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 06: SAVOIR-FAIRE & PATINA STUDY -->
+    <section class="savoir-faire border-top" id="savoir-faire">
+      <div class="split-layout">
+        <div class="split-media">
+          <img
+            id="patinaCraftImg"
+            src="https://images.unsplash.com/photo-1586216583179-20b23ef9dd5f?auto=format&fit=crop&w=1200&q=80"
+            alt="Artisan Leather Craftsmanship"
+            onerror="this.style.display='none'; this.parentElement.classList.add('fallback-dark');"
+          />
+          <div class="patina-visual-overlay">
+            <span class="micro-label light">PATINA EVOLUTION STUDY</span>
+            <p class="patina-stage-label" id="patinaStageTitle">DAY 01 — RAW NATURAL GRAIN</p>
+            <p class="patina-stage-note" id="patinaStageCopy">Warm matte finish with tight, unbleached vegetable-tanned fibers.</p>
+          </div>
+        </div>
+
+        <div class="split-content">
+          <p class="micro-label">SAVOIR-FAIRE &amp; MATERIAL</p>
+          <h2 class="section-title">A Personal Record<br />of Your Journey.</h2>
+          <p class="body-copy">
+            Crafted in select Vegetable-Tanned (VT) full-grain leather, originally produced for global luxury ateliers and now introduced for India’s new generation of achievers.
+          </p>
+          <p class="body-copy muted">
+            Unlike coated synthetic splits that crack and peel, unsealed VT leather absorbs the oils of your hands and the movement of your schedule—deepening in lustre into a patina unique to its owner.
+          </p>
+
+          <div class="patina-selector" role="tablist" aria-label="Patina Evolution Stages">
+            <button class="patina-tab active" data-stage="0">Day 01</button>
+            <button class="patina-tab" data-stage="1">Year 01</button>
+            <button class="patina-tab" data-stage="2">Year 05</button>
+          </div>
+
+          <ul class="craft-specs">
+            <li><span>Hide</span><span>Full-Grain Vegetable-Tanned</span></li>
+            <li><span>Edges</span><span>Hand-Burnished &amp; Waxed</span></li>
+            <li><span>Stitching</span><span>High-Tensile Bonded Thread</span></li>
+            <li><span>Aesthetic</span><span>Minimalist European Proportions</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 07: USE OCCASIONS TRIPTYCH -->
+    <section class="occasions section-pad border-top" id="occasions">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <p class="micro-label">USE OCCASIONS</p>
+            <h2 class="section-title">Presence Without Effort</h2>
+          </div>
+          <p class="section-meta">Not taken out to display wealth—noticed because it belongs.</p>
+        </div>
+
+        <div class="triptych-grid">
+          <figure class="triptych-item">
+            <div class="triptych-media">
+              <img
+                src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=1000&q=80"
+                alt="Boardroom Environment and Timepiece"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">I. THE BOARDROOM</span>
+            </div>
+            <figcaption>
+              <span class="micro-label">01 — THE BOARDROOM</span>
+              <p>Structured profiles engineered to sit flat in tailored suiting during decisive meetings.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="triptych-item">
+            <div class="triptych-media">
+              <img
+                src="https://images.unsplash.com/photo-1565891741441-64926e441838?auto=format&fit=crop&w=1000&q=80"
+                alt="International Transit"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">II. THE TRANSIT</span>
+            </div>
+            <figcaption>
+              <span class="micro-label">02 — THE TRANSIT</span>
+              <p>Quick-access architecture built for lounges, boarding gates, and demanding travel schedules.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="triptych-item">
+            <div class="triptych-media">
+              <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80"
+                alt="Fine Dining and Daily Transactions"
+                onerror="this.style.display='none'; this.parentElement.classList.add('fallback-studio');"
+              />
+              <span class="studio-placeholder-label">III. THE TABLE</span>
+            </div>
+            <figcaption>
+              <span class="micro-label">03 — THE TABLE</span>
+              <p>Understated warmth that rests naturally beside a timepiece in refined dining rooms.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 08: BESPOKE MONOGRAMMING -->
+    <section class="monogram-band section-pad border-top" id="monogram">
+      <div class="container monogram-grid">
+        <div class="monogram-copy">
+          <p class="micro-label">MILESTONE GIFTING &amp; BESPOKE</p>
+          <h2 class="section-title">Mark the Arrival.</h2>
+          <p class="body-copy">
+            Promotions, new ventures, first major wins. Every ORTA piece arrives in a rigid presentation box and can be blind-debossed with up to three initials—turning an everyday essential into a permanent heirloom.
+          </p>
+
+          <div class="monogram-controls">
+            <label for="monogramInput" class="micro-label">PREVIEW YOUR INITIALS (UP TO 3)</label>
+            <div class="monogram-input-row">
+              <input type="text" id="monogramInput" maxlength="3" placeholder="A.V" aria-label="Monogram Initials" />
+              <button class="btn-outline" id="applyMonogramBtn">Apply to Bag Order</button>
+            </div>
+            <p class="monogram-status" id="monogramStatus"></p>
+          </div>
+        </div>
+
+        <div class="monogram-preview-card">
+          <div class="leather-patch">
+            <span class="micro-label light">BLIND DEBOSS PREVIEW</span>
+            <div class="debossed-initials" id="debossedInitials">O.R</div>
+            <span class="patch-corner">ORTA — EST. INDIA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODULE 09: FOOTER -->
+  <footer class="site-footer border-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="brand-wordmark">ORTA</span>
+          <p class="body-copy muted">
+            Premium everyday leather essentials for India’s self-made achievers. Crafted in full-grain vegetable-tanned leather.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <p class="micro-label">COLLECTIONS</p>
+          <ul class="footer-two-col">
+            <li><a href="#collection" data-filter-jump="slg">Wallets</a></li>
+            <li><a href="#collection" data-filter-jump="slg">Metallic Card Holders</a></li>
+            <li><a href="#collection" data-filter-jump="slg">Leather Card Holders</a></li>
+            <li><a href="#collection" data-filter-jump="daily">Handbags</a></li>
+            <li><a href="#collection" data-filter-jump="daily">Sling Bags</a></li>
+            <li><a href="#collection" data-filter-jump="daily">Laptop Bags</a></li>
+            <li><a href="#collection" data-filter-jump="travel">Duffle Bags</a></li>
+            <li><a href="#collection" data-filter-jump="travel">Backpacks</a></li>
+            <li><a href="#collection" data-filter-jump="travel">Rucksacks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="micro-label">CLIENT SERVICES</p>
+          <ul>
+            <li><a href="#savoir-faire">Patina &amp; Leather Care</a></li>
+            <li><a href="#monogram">Corporate &amp; Milestone Gifting</a></li>
+            <li><a href="#collection">Shipping &amp; 14-Day Returns</a></li>
+            <li><a href="mailto:concierge@orta.in">concierge@orta.in</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="micro-label">PRIVATE DISPATCH</p>
+          <p class="footer-note">Receive invitations to limited small-batch releases.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Email Address" required aria-label="Email Address" />
+            <button type="submit">Join</button>
+          </form>
+          <p class="newsletter-msg" id="newsletterMsg"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 ORTA LEATHER GOODS. ALL RIGHTS RESERVED.</span>
+        <span>CRAFTED FOR THE NEXT LEVEL.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODULE 10: SLIDE-OVER SHOPPING BAG DRAWER -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag" aria-hidden="true">
+    <div class="cart-header">
+      <span class="micro-label">YOUR BAG</span>
+      <button class="icon-close" id="closeCartBtn" aria-label="Close Bag">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cartItemsContainer">
+      <div class="cart-empty">
+        <p>Your bag is currently empty.</p>
+        <a href="#collection" class="editorial-link" id="emptyContinueLink">Explore Essentials</a>
+      </div>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div class="cart-note-row" id="cartMonogramNote" style="display: none;">
+        <span>Blind Monogramming</span>
+        <strong id="cartMonogramValue"></strong>
+      </div>
+      <div class="cart-subtotal-row">
+        <span>Subtotal (Incl. Taxes)</span>
+        <strong id="cartSubtotal">₹0</strong>
+      </div>
+      <p class="cart-shipping-note">Complimentary insured air shipping across India.</p>
+      <button class="btn-solid full-width" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const storage = {
+        get(key, fallback) {
+          try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; }
+        },
+        set(key, val) {
+          try { localStorage.setItem(key, val); } catch {}
+        }
+      };
+
+      let cart = [];
+      try { cart = JSON.parse(storage.get('orta_cart', '[]')); } catch { cart = []; }
+      let activeMonogram = storage.get('orta_monogram', '');
+
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartBackdrop = document.getElementById('cartBackdrop');
+      const openCartBtn = document.getElementById('openCartBtn');
+      const closeCartBtn = document.getElementById('closeCartBtn');
+      const cartCountEl = document.getElementById('cartCount');
+      const cartItemsEl = document.getElementById('cartItemsContainer');
+      const cartFooterEl = document.getElementById('cartFooter');
+      const cartSubtotalEl = document.getElementById('cartSubtotal');
+      const cartMonogramNoteEl = document.getElementById('cartMonogramNote');
+      const cartMonogramValueEl = document.getElementById('cartMonogramValue');
+      const emptyContinueLink = document.getElementById('emptyContinueLink');
+
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const openMobileMenu = document.getElementById('openMobileMenu');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+      const formatINR = (amount) => '₹' + Number(amount).toLocaleString('en-IN');
+
+      const saveState = () => {
+        storage.set('orta_cart', JSON.stringify(cart));
+        storage.set('orta_monogram', activeMonogram);
+      };
+
+      const openCart = () => {
+        cartDrawer.classList.add('open');
+        cartBackdrop.classList.add('open');
+        cartDrawer.setAttribute('aria-hidden', 'false');
+      };
+
+      const closeAllDrawers = () => {
+        cartDrawer.classList.remove('open');
+        mobileDrawer.classList.remove('open');
+        cartBackdrop.classList.remove('open');
+        cartDrawer.setAttribute('aria-hidden', 'true');
+        mobileDrawer.setAttribute('aria-hidden', 'true');
+      };
+
+      openCartBtn.addEventListener('click', openCart);
+      closeCartBtn.addEventListener('click', closeAllDrawers);
+      cartBackdrop.addEventListener('click', closeAllDrawers);
+      if (emptyContinueLink) emptyContinueLink.addEventListener('click', closeAllDrawers);
+
+      openMobileMenu.addEventListener('click', () => {
+        mobileDrawer.classList.add('open');
+        cartBackdrop.classList.add('open');
+        mobileDrawer.setAttribute('aria-hidden', 'false');
+      });
+
+      closeMobileMenu.addEventListener('click', closeAllDrawers);
+      document.querySelectorAll('.mobile-link').forEach((link) => {
+        link.addEventListener('click', closeAllDrawers);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAllDrawers();
+      });
+
+      // Cart Rendering
+      const renderCart = () => {
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountEl.textContent = totalItems;
+
+        if (cart.length === 0) {
+          cartItemsEl.innerHTML = `
+            <div class="cart-empty">
+              <p>Your bag is currently empty.</p>
+              <a href="#collection" class="editorial-link" onclick="document.getElementById('closeCartBtn').click()">Explore Essentials</a>
+            </div>
+          `;
+          cartFooterEl.style.display = 'none';
+          return;
+        }
+
+        cartItemsEl.innerHTML = cart.map((item, idx) => `
+          <div class="cart-item">
+            <div class="cart-thumb">
+              <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'" />
+            </div>
+            <div>
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-variant">${item.variant}</div>
+              <div class="cart-item-controls">
+                <div class="qty-box">
+                  <button type="button" class="qty-dec" data-idx="${idx}" aria-label="Decrease quantity">&minus;</button>
+                  <span>${item.qty}</span>
+                  <button type="button" class="qty-inc" data-idx="${idx}" aria-label="Increase quantity">+</button>
+                </div>
+                <span>${formatINR(item.price * item.qty)}</span>
+              </div>
+              <button type="button" class="remove-item" data-idx="${idx}" style="margin-top:8px;">Remove</button>
+            </div>
+          </div>
+        `).join('');
+
+        const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        cartSubtotalEl.textContent = formatINR(subtotal);
+
+        if (activeMonogram) {
+          cartMonogramNoteEl.style.display = 'flex';
+          cartMonogramValueEl.textContent = activeMonogram;
+        } else {
+          cartMonogramNoteEl.style.display = 'none';
+        }
+
+        cartFooterEl.style.display = 'block';
+
+        document.querySelectorAll('.qty-inc').forEach((btn) =>
+          btn.addEventListener('click', () => {
+            cart[btn.dataset.idx].qty += 1;
+            saveState();
+            renderCart();
+          })
+        );
+
+        document.querySelectorAll('.qty-dec').forEach((btn) =>
+          btn.addEventListener('click', () => {
+            const i = btn.dataset.idx;
+            if (cart[i].qty > 1) cart[i].qty -= 1;
+            else cart.splice(i, 1);
+            saveState();
+            renderCart();
+          })
+        );
+
+        document.querySelectorAll('.remove-item').forEach((btn) =>
+          btn.addEventListener('click', () => {
+            cart.splice(btn.dataset.idx, 1);
+            saveState();
+            renderCart();
+          })
+        );
+      };
+
+      // Quick Add
+      document.querySelectorAll('.quick-add-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const { name, price, variant, img } = btn.dataset;
+          const existing = cart.find((item) => item.name === name && item.variant === variant);
+          if (existing) existing.qty += 1;
+          else cart.push({ name, price: Number(price), variant, img, qty: 1 });
+          saveState();
+          renderCart();
+          openCart();
+        });
+      });
+
+      // Swatches
+      document.querySelectorAll('.swatch-row').forEach((row) => {
+        const swatches = row.querySelectorAll('.swatch');
+        const btn = row.closest('.product-card').querySelector('.quick-add-btn');
+        swatches.forEach((swatch) => {
+          swatch.addEventListener('click', () => {
+            swatches.forEach((s) => s.classList.remove('active'));
+            swatch.classList.add('active');
+            btn.dataset.variant = `${swatch.getAttribute('title')} — VT Leather`;
+          });
+        });
+      });
+
+      // 9-Category Filtering
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      const applyCategoryFilter = (filterValue) => {
+        filterButtons.forEach((btn) => btn.classList.toggle('active', btn.dataset.filter === filterValue));
+        productCards.forEach((card) => {
+          const match = filterValue === 'all' || card.dataset.category === filterValue;
+          card.classList.toggle('is-hidden', !match);
+        });
+      };
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => applyCategoryFilter(btn.dataset.filter));
+      });
+
+      document.querySelectorAll('[data-filter-jump]').forEach((link) => {
+        link.addEventListener('click', () => applyCategoryFilter(link.dataset.filterJump));
+      });
+
+      // Patina Evolution Tabs (Adjusts tone/richness on image too)
+      const patinaStages = [
+        {
+          title: 'DAY 01 — RAW NATURAL GRAIN',
+          copy: 'Warm matte finish with tight, unbleached vegetable-tanned fibers.',
+          filter: 'brightness(0.96) contrast(1.0) saturate(0.95)',
+          bg: 'radial-gradient(circle at 30% 40%, #6A4127, #241912 75%)'
+        },
+        {
+          title: 'YEAR 01 — DEVELOPED LUSTRE',
+          copy: 'Edges burnish naturally; surface tones deepen into rich amber cognac.',
+          filter: 'brightness(0.86) contrast(1.12) saturate(1.08)',
+          bg: 'radial-gradient(circle at 30% 40%, #54311B, #1C130E 75%)'
+        },
+        {
+          title: 'YEAR 05 — PERSONAL ARCHIVE',
+          copy: 'A deep, glass-like patina carrying the character of every mile traveled.',
+          filter: 'brightness(0.75) contrast(1.22) saturate(1.15)',
+          bg: 'radial-gradient(circle at 30% 40%, #3A1F10, #120C09 75%)'
+        }
+      ];
+
+      const patinaTabs = document.querySelectorAll('.patina-tab');
+      const patinaStageTitle = document.getElementById('patinaStageTitle');
+      const patinaStageCopy = document.getElementById('patinaStageCopy');
+      const patinaCraftImg = document.getElementById('patinaCraftImg');
+      const splitMedia = document.querySelector('.split-media');
+
+      patinaTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          patinaTabs.forEach((t) => t.classList.remove('active'));
+          tab.classList.add('active');
+          const data = patinaStages[tab.dataset.stage];
+          patinaStageTitle.textContent = data.title;
+          patinaStageCopy.textContent = data.copy;
+          if (patinaCraftImg) patinaCraftImg.style.filter = data.filter;
+          if (splitMedia.classList.contains('fallback-dark')) splitMedia.style.background = data.bg;
+        });
+      });
+
+      // Live Monogram Preview
+      const monogramInput = document.getElementById('monogramInput');
+      const debossedInitials = document.getElementById('debossedInitials');
+      const applyMonogramBtn = document.getElementById('applyMonogramBtn');
+      const monogramStatus = document.getElementById('monogramStatus');
+
+      monogramInput.addEventListener('input', (e) => {
+        const val = e.target.value.toUpperCase().replace(/[^A-Z.]/g, '');
+        e.target.value = val;
+        debossedInitials.textContent = val || 'O.R';
+      });
+
+      applyMonogramBtn.addEventListener('click', () => {
+        const val = monogramInput.value.trim().toUpperCase();
+        if (!val) {
+          monogramStatus.textContent = 'Enter up to 3 initials above to apply.';
+          return;
+        }
+        activeMonogram = val;
+        saveState();
+        renderCart();
+        monogramStatus.textContent = `Monogram "${val}" saved for your order.`;
+      });
+
+      document.getElementById('checkoutBtn').addEventListener('click', () => {
+        alert('Ready for Shopify / Razorpay / GoKwik Checkout Integration.');
+      });
+
+      document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        document.getElementById('newsletterMsg').textContent = 'Registered for ORTA private dispatches.';
+        e.target.reset();
+      });
+
+      renderCart();
+    });
+  </script>
+</body>
+</html>
